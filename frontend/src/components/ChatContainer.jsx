@@ -22,11 +22,11 @@ const ChatContainer = () => {
   const containerRef = useRef(null);
   const isAtBottomRef = useRef(true);
   const prevMessageCountRef = useRef(0);
-  const [initialLoad, setInitialLoad] = useState(true); // ⛔ ignore first scroll
+  const [initialLoad, setInitialLoad] = useState(true); 
 
   // Fetch messages when user changes
   useEffect(() => {
-    setInitialLoad(true); // 🛑 Prevent scroll on initial load
+    setInitialLoad(true); 
     getMessages(selectedUser._id);
     subscribeToMessages();
     return () => unsubscribeFromMessages();
@@ -42,7 +42,7 @@ const ChatContainer = () => {
     isAtBottomRef.current = nearBottom;
   };
 
-  // Scroll to bottom only for new message (not initial load)
+  // Scroll to bottom only for new message 
   useEffect(() => {
     if (initialLoad) {
       prevMessageCountRef.current = messages.length;
